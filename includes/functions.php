@@ -19,7 +19,7 @@ class bp_profile_cover_functions{
 
 	function __construct(){
 		add_action( 'bp_xprofile_setup_nav', array($this,'bp_profile_cover_setup_nav'));
-		add_action('bp_before_group_home_content',array($this,'bp_group_profile_cover'));
+		add_action('bp_before_group_header',array($this,'bp_group_profile_cover'));
 		add_action('bp_before_member_home_content',array($this,'display_cover'));
 		add_action('bp_before_member_plugin_template',array($this,'display_cover'));
 	}
