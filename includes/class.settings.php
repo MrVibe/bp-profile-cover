@@ -60,33 +60,33 @@ class BP_Profile_Cover_Settings{
 	
 		$settings=array(
 				array(
-					'label' => __('Default Image','vibe-customtypes'),
+					'label' => __('Default Image','bp-profile-cover' ),
 					'name' =>'default_image',
 					'type' => 'upload',
-					'button'=> __('Upload Default Image','vibe-customtypes'),
-					'desc' => __('Set Login redirect settings','vibe-customtypes')
+					'button'=> __('Upload Default Image','bp-profile-cover' ),
+					'desc' => __('Set Login redirect settings','bp-profile-cover' )
 				),
 				array(
-					'label' => __('Background Size','vibe-customtypes'),
+					'label' => __('Background Size','bp-profile-cover' ),
 					'name' =>'background_size',
 					'type' => 'select',
 					'options'=> array(
-						'auto' => __('auto','vibe-customtypes'),
-						'cover' => __('Cover','vibe-customtypes'),
-						'contain' => __('Contain','vibe-customtypes'),
+						'auto' => __('auto','bp-profile-cover' ),
+						'cover' => __('Cover','bp-profile-cover' ),
+						'contain' => __('Contain','bp-profile-cover' ),
 						),
-					'desc' => __('Set default cover background size ','vibe-customtypes').' <a href="http://www.w3schools.com/cssref/css3_pr_background-size.asp" target="_blank">'.__('Learn more','bp-profile-cover').'</a>'
+					'desc' => __('Set default cover background size ','bp-profile-cover' ).' <a href="http://www.w3schools.com/cssref/css3_pr_background-size.asp" target="_blank">'.__('Learn more','bp-profile-cover').'</a>'
 				),
 				array(
-					'label' => __('Background Attachment','vibe-customtypes'),
+					'label' => __('Background Attachment','bp-profile-cover' ),
 					'name' =>'background_attachment',
 					'type' => 'select',
 					'options'=> array(
-						'scroll' => __('Scroll','vibe-customtypes'),
-						'fixed' => __('Fixed','vibe-customtypes'),
-						'inherit' => __('inherit','vibe-customtypes'),
+						'scroll' => __('Scroll','bp-profile-cover' ),
+						'fixed' => __('Fixed','bp-profile-cover' ),
+						'inherit' => __('inherit','bp-profile-cover' ),
 						),
-					'desc' => __('Set default cover background attachment ','vibe-customtypes').' <a href="http://www.w3schools.com/cssref/pr_background-attachment.asp" target="_blank">'.__('Learn more','bp-profile-cover').'</a>'
+					'desc' => __('Set default cover background attachment ','bp-profile-cover' ).' <a href="http://www.w3schools.com/cssref/pr_background-attachment.asp" target="_blank">'.__('Learn more','bp-profile-cover').'</a>'
 				),
 			);
 

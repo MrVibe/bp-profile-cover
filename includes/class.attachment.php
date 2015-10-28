@@ -128,20 +128,20 @@ if ( class_exists( 'BP_Group_Extension' ) ) :
 			$repeat = groups_get_groupmeta($group_id,'repeat');
            ?>
 
-            <p><?php _e('If you want to change your group cover, please upload a new image.', 'bpcp'); ?></p>
+            <p><?php _e('If you want to change your group cover, please upload a new image.', 'bp-profile-cover' ); ?></p>
             <?php wp_nonce_field( $group_id ); ?>
             <input type="file" name="group_cover" id="group_cover" class="group_cover"><br />
-            <input type="number" name="position_x" style="width:80px;" value="<?php echo (isset($position_x)?$position_x:'50%'); ?>" placeholder="<?php esc_attr_e( 'X Postion %', 'buddypress' ); ?>" />
-			<input type="number" name="position_y" style="width:80px;" value="<?php echo (isset($position_y)?$position_y:'50%'); ?>" placeholder="<?php esc_attr_e( 'Y Postion %', 'buddypress' ); ?>" /><br />
+            <input type="number" name="position_x" style="width:80px;" value="<?php echo (isset($position_x)?$position_x:'50%'); ?>" placeholder="<?php esc_attr_e( 'X Postion %', 'bp-profile-cover' ); ?>" />
+			<input type="number" name="position_y" style="width:80px;" value="<?php echo (isset($position_y)?$position_y:'50%'); ?>" placeholder="<?php esc_attr_e( 'Y Postion %', 'bp-profile-cover' ); ?>" /><br />
 			<br />
 			<label><input type="radio" name="cover_repeat" value="repeat" <?php checked($repeat,'repeat'); ?>/> Repeat</label>&nbsp;&nbsp;
 			<label><input type="radio" name="cover_repeat" value="no-repeat" <?php checked($repeat,'no-repeat'); ?>/> No Repeat</label><br /><br />
-            <input type="submit" name="profile_cover" id="upload" value="<?php esc_attr_e( 'Upload Image & Save Settings', 'buddypress' ); ?>" />
+            <input type="submit" name="profile_cover" id="upload" value="<?php esc_attr_e( 'Upload Image & Save Settings', 'bp-profile-cover' ); ?>" />
             <input type="hidden" name="action" id="action" value="bp_group_cover_upload" />
             <input type="hidden" name="group_id" value="<?php echo $group_id;?>" />
             <?php if ( ! empty( $image_url ) ): ?>
                 <div id="bg-delete-wrapper">
-                    <input type="submit" name="delete_group_profile_cover" id='delete_group_profile_cover' class='btn btn-default btn-xs' value="<?php _e('Delete existing cover', 'bpcp'); ?>" />
+                    <input type="submit" name="delete_group_profile_cover" id='delete_group_profile_cover' class='btn btn-default btn-xs' value="<?php _e('Delete existing cover', 'bp-profile-cover' ); ?>" />
                 </div>
             <?php endif; ?>
         <?php
@@ -159,7 +159,7 @@ if ( class_exists( 'BP_Group_Extension' ) ) :
 			$group_id = $_POST['group_id'];
 
 			if ( !isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'],$group_id) ){ 
-				    $this->message = '<div class="error message">'.__('Security check Failed. Contact Administrator.','vibe').'</div>';
+				    $this->message = '<div class="error message">'.__('Security check Failed. Contact Administrator.','bp-profile-cover' ).'</div>';
 			}else{
 					if(! empty( $_FILES['group_cover']['name'])){
 						$attachment = new BP_Group_Profile_Cover();
@@ -168,7 +168,7 @@ if ( class_exists( 'BP_Group_Extension' ) ) :
 							$this->message =  '<div class="error message">'.$file['error'].'</div>';
 						} else{
 							groups_update_groupmeta( $group_id, 'cover', $file['url']);
-							$this->message =  '<div class="success message">'.__('Cover image uploaded successfully','vibe').'</div>';
+							$this->message =  '<div class="success message">'.__('Cover image uploaded successfully','bp-profile-cover' ).'</div>';
 						}
 					}else if(isset($_POST['delete_group_profile_cover'])){
 						groups_delete_groupmeta($group_id,'cover');

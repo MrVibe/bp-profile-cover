@@ -29,7 +29,7 @@ class bp_profile_cover_functions{
 	    $profile_link = bp_loggedin_user_domain() . $bp->profile->slug . '/';
 	    bp_core_new_subnav_item(
 	        array(
-	            'name' => __('Change Cover', 'bpcp'),
+	            'name' => __('Change Cover', 'bp-profile-cover'),
 	            'slug' => 'change-cover',
 	            'parent_url' => $profile_link,
 	            'parent_slug' => $bp->profile->slug,
@@ -46,7 +46,7 @@ class bp_profile_cover_functions{
 		if(isset($_POST['action']) && $_POST['action'] == 'bp_cover_upload' ){ 
 
 			if ( !isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'],'bp_cover_upload') ){
-			    $this->message = '<div class="error message">'.__('Security check Failed. Contact Administrator.','vibe').'</div>';
+			    $this->message = '<div class="error message">'.__('Security check Failed. Contact Administrator.','bp-profile-cover' ).'</div>';
 			}else{
 				if(! empty( $_FILES['profile_cover']['name'])){
 					$attachment = new BP_Profile_Cover();
@@ -55,7 +55,7 @@ class bp_profile_cover_functions{
 						$this->message =  '<div class="error message">'.$file['error'].'</div>';
 					} else{
 						update_user_meta($bp->loggedin_user->id,'cover',$file['url']);
-						$this->message =  '<div class="success message">'.__('Cover image uploaded successfully','vibe').'</div>';
+						$this->message =  '<div class="success message">'.__('Cover image uploaded successfully','bp-profile-cover' ).'</div>';
 					}
 				}else if(isset($_POST['delete_profile_cover'])){
 					delete_user_meta($bp->loggedin_user->id,'cover');
@@ -88,14 +88,14 @@ class bp_profile_cover_functions{
 			}
 		}
 		?>
-		<h4><?php _e( 'Add/Edit profile cover photo', 'buddypress' ); ?></h4>
+		<h4><?php _e( 'Add/Edit profile cover photo','bp-profile-cover' ); ?></h4>
 		<?php do_action( 'bp_before_profile__upload_content' ); ?>
 
-			<p><?php _e( 'You can upload an image from your computer.', 'buddypress'); ?></p>
+			<p><?php _e( 'You can upload an image from your computer.', 'bp-profile-cover'); ?></p>
 
 			<form action="" method="post" id="cover-upload-form" class="standard-form" enctype="multipart/form-data">
 				<?php wp_nonce_field( 'bp_cover_upload' ); ?>
-					<p><?php _e( 'Click below to select a JPG or PNG format photo from your computer and then click \'Upload Image\' to proceed.', 'buddypress' ); ?></p>
+					<p><?php _e( 'Click below to select a JPG or PNG format photo from your computer and then click \'Upload Image\' to proceed.','bp-profile-cover' ); ?></p>
 
 					<p id="cover-upload"><br />
 						<input type="file" name="profile_cover" id="profile_cover" /><br />
@@ -106,17 +106,17 @@ class bp_profile_cover_functions{
 								$position_y = get_user_meta($user_id,'position_y',true);
        							$repeat = get_user_meta($user_id,'repeat',true);
 						?>
-						<input type="number" name="position_x" style="width:80px;" value="<?php echo (isset($position_x)?$position_x:'50%'); ?>" placeholder="<?php esc_attr_e( 'X Postion %', 'buddypress' ); ?>" />
-						<input type="number" name="position_y" style="width:80px;" value="<?php echo (isset($position_y)?$position_y:'50%'); ?>" placeholder="<?php esc_attr_e( 'Y Postion %', 'buddypress' ); ?>" /><br />
+						<input type="number" name="position_x" style="width:80px;" value="<?php echo (isset($position_x)?$position_x:'50%'); ?>" placeholder="<?php esc_attr_e( 'X Postion %','bp-profile-cover' ); ?>" />
+						<input type="number" name="position_y" style="width:80px;" value="<?php echo (isset($position_y)?$position_y:'50%'); ?>" placeholder="<?php esc_attr_e( 'Y Postion %','bp-profile-cover' ); ?>" /><br />
 						<br />
 						<label><input type="radio" name="cover_repeat" value="repeat" <?php checked($repeat,'repeat'); ?>/> Repeat</label>&nbsp;&nbsp;
 						<label><input type="radio" name="cover_repeat" value="no-repeat" <?php checked($repeat,'no-repeat'); ?>/> No Repeat</label><br /><br />
-						<input type="submit" name="profile_cover" id="upload" value="<?php esc_attr_e( 'Upload Image & Save Settings', 'buddypress' ); ?>" />
+						<input type="submit" name="profile_cover" id="upload" value="<?php esc_attr_e( 'Upload Image & Save Settings','bp-profile-cover' ); ?>" />
 					</p><br />
 					
 					<?php if ( bp_get_user_has_cover() ) : ?>
-						<p><?php _e( "If you'd like to delete your current cover but not upload a new one, please use the delete cover button.", 'buddypress' ); ?></p>
-						<input type="submit" name="delete_profile_cover" id="delete" value="<?php esc_attr_e( 'Delete Cover', 'buddypress' ); ?>" />
+						<p><?php _e( "If you'd like to delete your current cover but not upload a new one, please use the delete cover button.",'bp-profile-cover' ); ?></p>
+						<input type="submit" name="delete_profile_cover" id="delete" value="<?php esc_attr_e( 'Delete Cover','bp-profile-cover' ); ?>" />
 					<?php endif; ?>
 
 			</form>
