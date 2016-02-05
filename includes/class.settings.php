@@ -27,11 +27,14 @@ class BP_Profile_Cover_Settings{
     }
 
 	private function __construct(){
-		$this->option = 'bp-profile-cover';
-		add_options_page(__('BP Profile Coversettings','bp-profile-cover'),__('BP Profile Cover','bp-profile-cover'),'manage_options','bp-profile-cover',array($this,'settings'));
+		$this->option = 'bp-profile-cover';		
 		$this->settings=$this->get(); 
+		add_action('admin_menu',array($this,'add_options_link'));
 	}
 
+	function add_options_link(){
+		add_options_page(__('BP Profile Coversettings','bp-profile-cover'),__('BP Profile Cover','bp-profile-cover'),'manage_options','bp-profile-cover',array($this,'settings'));
+	}
 	function settings(){
 		$tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'general';
 		$this->settings_tabs($tab);
@@ -84,7 +87,7 @@ class BP_Profile_Cover_Settings{
 					'options'=> array(
 						'scroll' => __('Scroll','bp-profile-cover' ),
 						'fixed' => __('Fixed','bp-profile-cover' ),
-						'inherit' => __('inherit','bp-profile-cover' ),
+						'' => __('inherit','bp-profile-cover' ),
 						),
 					'desc' => __('Set default cover background attachment ','bp-profile-cover' ).' <a href="http://www.w3schools.com/cssref/pr_background-attachment.asp" target="_blank">'.__('Learn more','bp-profile-cover').'</a>'
 				),
