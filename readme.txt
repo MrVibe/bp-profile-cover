@@ -1,9 +1,9 @@
-I=== BP Profile Cover ===
+=== BP Profile Cover ===
 Contributors: vibethemes
 Tags: Cover image, buddypress, profile image, profile cover
 Requires at least: 3.6
-Tested up to: 4.2.2
-Stable tag: 1.2
+Tested up to: 4.3.1
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,8 @@ Report bugs, suggest ideas, and participate in development at <a href="https://v
 
 
 == Upgrade Notice ==
-
+= 1.2 =
+Language Files
+Settings in WP Admin - Settings - BP Profile Cover
 = 1.0 =
 Initialise 1.0

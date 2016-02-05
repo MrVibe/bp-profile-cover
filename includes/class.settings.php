@@ -227,7 +227,7 @@ class BP_Profile_Cover_Settings{
 	}
 }
 
-add_action('admin_menu','init_bp_profile_cover_settings_settings',100);
-function init_bp_profile_cover_settings_settings(){
-	BP_Profile_Cover_Settings::init();
-}
+
+
+BP_Profile_Cover_Settings::init();
+

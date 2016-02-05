@@ -3,7 +3,7 @@
 Plugin Name: BP Profile Cover
 Plugin URI: http://www.VibeThemes.com
 Description: Add Profile covers to Member and Group PRofiles (BuddyPress 2.3+)
-Version: 1.2
+Version: 1.3
 Requires at least: WP 3.8, BuddyPress 2.3
 Tested up to: 2.0.1
 License: GPLv2
