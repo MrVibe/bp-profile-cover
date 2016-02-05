@@ -32,7 +32,8 @@ class BP_Profile_Cover extends BP_Attachment {
 		}
 		return $file;
 	}
-	public function upload_dir_filter() {
+	
+	public function upload_dir_filter($upload_dir = array()) {
 		$upload_dir_data = parent::upload_dir_filter();
 		if ( ! is_user_logged_in() ) {
 			return $upload_dir_data;
@@ -68,7 +69,7 @@ class BP_Group_Profile_Cover extends BP_Attachment {
 		}
 		return $file;
 	}
-	public function upload_dir_filter() {
+	public function upload_dir_filter($upload_dir = array()) {
 		$upload_dir_data = parent::upload_dir_filter();
 		if ( ! is_user_logged_in() ) {
 			return $upload_dir_data;
