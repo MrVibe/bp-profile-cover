@@ -157,17 +157,18 @@ class bp_profile_cover_functions{
 
        echo '<style>.bp-user #buddypress #item-header{
        	padding:20px;
-       	background:url("'.$cover_url.'") '.$position_x.'% '.$position_y.'% '.$repeat.' '.(empty($default['background_attachment'])?'fixed':$default['background_attachment']).' !important; 
+       	background:url("'.$cover_url.'") '.$position_x.'% '.$position_y.'% '.$repeat.' '.((empty($default['background_attachment'])|| $default['background_attachment'] == 'inherit')?'':$default['background_attachment']).' !important; 
        	-webkit-background-size: '.(empty($default['background_size'])?'cover':$default['background_size']).' !important;
     	background-size: '.(empty($default['background_size'])?'cover':$default['background_size']).' !important;
     	}</style>';
     }
 	function bp_group_profile_cover(){ 
 		global $bp; 
-		$cover_url = groups_get_groupmeta(  bp_get_group_id(), 'cover' );
-		$position_x = intval(groups_get_groupmeta( bp_get_group_id(),'position_x'));
-		$position_y = intval(groups_get_groupmeta( bp_get_group_id(),'position_y'));
-       	$repeat = groups_get_groupmeta( bp_get_group_id(),'repeat');
+		$group_id = $bp->groups->current_group->id;
+		$cover_url = groups_get_groupmeta(  $group_id, 'cover' );
+		$position_x = intval(groups_get_groupmeta( $group_id,'position_x'));
+		$position_y = intval(groups_get_groupmeta( $group_id,'position_y'));
+       	$repeat = groups_get_groupmeta( $group_id,'repeat');
        	if(!isset($position_x)){
        	 $position_x = '50';
        }
@@ -193,7 +194,7 @@ class bp_profile_cover_functions{
         }
         echo '<style> #item-header{
         	padding:20px;    
-        	background:url("'.$cover_url.'") '.$position_x.'% '.$position_y.'% '.$repeat.' '.(empty($default['background_attachment'])?'fixed':$default['background_attachment']).' !important; 
+        	background:url("'.$cover_url.'") '.$position_x.'% '.$position_y.'% '.$repeat.' '.(empty($default['background_attachment'])?'':$default['background_attachment']).' !important; 
        		-webkit-background-size: '.(empty($default['background_size'])?'cover':$default['background_size']).' !important;
     		background-size: '.(empty($default['background_size'])?'cover':$default['background_size']).' !important;
         } </style>';
